@@ -12,7 +12,6 @@ interface IErrorMessage {
 export default function useMutationQuery<D, E = unknown>(path: string, method: HttpMethod, onSuccess?: Function) {
     const mutation = useMutation(
         async (data: D) => {
-            console.log(data);
             const result = await axios({
                 method,
                 data,

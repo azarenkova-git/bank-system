@@ -24,10 +24,6 @@ checkstyle {
     configFile file("checkstyle_rules.xml")
 }
 
-checkstyleMain {
-    source = 'src/main/java'
-}
-
 sourceSets {
     integration {
         java.srcDir "$projectDir/src/integration/java"
@@ -55,14 +51,20 @@ task integrationTest(type: Test) {
     classpath = sourceSets.integration.runtimeClasspath
 }
 
-test {
+task unitTest(type: Test) {
     useJUnitPlatform()
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+}
+
+test {
+    finalizedBy unitTest
     finalizedBy integrationTest
     finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
-    dependsOn test, integrationTest
+    dependsOn unitTest, integrationTest
     // https://stackoverflow.com/questions/50932619/gradle-jacoco-with-integrationtest-and-exclusions
     // без этой строчки jacoco берет coverage только из test (без integrationTest)
     executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")

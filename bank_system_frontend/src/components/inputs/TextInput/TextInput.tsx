@@ -19,9 +19,9 @@ function TextInput({ fieldId, label }: ITextInputProps) {
                 label={label}
                 value={preprocessedValue}
                 onChange={(e) => {
-                    const value = e.target.value;
-                    const preprocessedValue = value ? String(value) : null;
-                    helpers.setValue(preprocessedValue);
+                    const newValue = e.target.value;
+                    const preprocessedNewValue = newValue ? String(newValue) : null;
+                    helpers.setValue(preprocessedNewValue);
                 }}
                 onBlur={() => helpers.setTouched(true)}
                 error={Boolean(error)}

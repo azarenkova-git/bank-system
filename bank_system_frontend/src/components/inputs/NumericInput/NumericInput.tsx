@@ -18,9 +18,9 @@ function NumericInput({ fieldId, label }: INumericInputProps) {
                 type="number"
                 label={label}
                 onChange={(e) => {
-                    const value = e.target.value;
-                    const preprocessedValue = value ? Number(value) : null;
-                    helpers.setValue(preprocessedValue);
+                    const newValue = e.target.value;
+                    const preprocessedNewValue = newValue ? Number(newValue) : null;
+                    helpers.setValue(preprocessedNewValue);
                 }}
                 onBlur={() => helpers.setTouched(true)}
                 value={preprocessedValue}
