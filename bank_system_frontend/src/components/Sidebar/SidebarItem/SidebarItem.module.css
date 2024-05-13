@@ -1,0 +1,19 @@
+.container {
+    padding: 5px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid black;
+}
+
+.selected {
+    background-color: aquamarine;
+}
+
+.container:hover:not(.selected) {
+    background-color: var(--standard-hover-color);
+}

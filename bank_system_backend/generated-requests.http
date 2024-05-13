@@ -1,0 +1,37 @@
+###
+POST http://localhost:8080/bank/create
+Content-Type: application/json
+
+{
+  "id": "bank1",
+  "limitForOperationsWithQuestionableClients": 1000,
+  "allowedBankAccountTypes": ["CREDIT", "DEPOSIT"]
+}
+
+###
+GET http://localhost:8080/bank/find/bank1
+
+###
+POST http://localhost:8080/bank-client/create
+Content-Type: application/json
+
+{
+  "id": "user5",
+  "lastName": "Ivanov",
+  "firstName": "Mike"
+}
+
+###
+POST http://localhost:8080/credit-bank-account/create
+Content-Type: application/json
+
+{
+  "id": "bank1_credit1_user1",
+  "bankId": "bank1",
+  "bankClientId": "user1",
+  "commissionRateIn10nthOfPercent": 100,
+  "creditLimitInCents": 1000
+}
+
+###
+GET http://localhost:8080/bank-account/find-all

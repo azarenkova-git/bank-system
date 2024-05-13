@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    border-bottom: var(--border);
+    padding: var(--standard-padding);
+}
+
+.container:hover {
+    background-color: var(--standard-hover-color);
+}

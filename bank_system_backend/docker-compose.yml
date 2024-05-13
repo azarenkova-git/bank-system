@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - backend-data:/app/xml/production
+      - backend-test-coverage:/app/build/reports/jacoco/test/html
+
+  backend-test-coverage:
+    depends_on:
+      - backend
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - backend-test-coverage:/usr/share/nginx/html
+
+volumes:
+  backend-data:
+  backend-test-coverage:

@@ -1,0 +1,17 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-areas: "sidebar content";
+    grid-template-columns: auto 1fr;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+    overflow: auto;
+}

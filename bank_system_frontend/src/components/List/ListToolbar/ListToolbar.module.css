@@ -1,0 +1,6 @@
+.container {
+    background-color: var(--accent-color);
+    height: 50px;
+    border-bottom: var(--border);
+    padding: var(--standard-padding);
+}

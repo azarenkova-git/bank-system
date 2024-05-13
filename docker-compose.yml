@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./bank_system_backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - backend-data:/app/xml/production
+
+  frontend:
+    depends_on:
+      - backend
+    build: ./bank_system_frontend
+    ports:
+      - "8090:80"
+
+
+volumes:
+  backend-data:
